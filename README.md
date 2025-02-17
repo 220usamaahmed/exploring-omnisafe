@@ -34,6 +34,14 @@ In order to train combinations of multiple policies on differnet environments
 we can use the `ExperimentGrid` module. It takes a list of policies and
 environments.
 
+#### `env_from_scratch.py`
+Create an env for safe reinforcement learning and register it with OmniSafe.
+These environments have an aditional cost component along with the regular
+reward signal.
+
+#### `embed_env.py`
+Embed an existing gym-style environment into one which will work with OmniSafe.
+
 ## Environments
 ```
 'SafetyRacecarButton2-v0', 'SafetyDoggoButton2-v0', 'SafetyPointCircle2-v0',
