@@ -136,6 +136,19 @@ This folder has an implementaion for the Soft Actor Critic algorithm meant to
 eventually registered with OpenSafe.
 
 #### OpenSafe working
-- What happens when we call `.train()` on an `Agent` object?
+- What happens when we call `.learn()` on an `Agent` object?
+  - `AlgoWrapper` is imported as `Agent`. This uses the registry to create object of the algorithm class (of type `BaseAlgo`)
+  - `BaseAlgo` has the `.learn()` method. This in turn calls the `.learn()` of the actual algorithm class.  
+  - What exactly happens inside the `.learn()` method of the `BaseAlgo` class object?
+    - rollout?
+    - update?
+    - log?
+
+- What happens when we call the `.render()` method of a `BaseAlgo` object?
+  - This uses the `Evaluator` to load a model and render.
+  
 - What does an `Evaluator` look for when we call `.load_saved()`?
+  - ...
+
 - What happens when we call `.evaluate` on a `Evaluator` object?
+  - ...
