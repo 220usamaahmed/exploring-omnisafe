@@ -274,7 +274,7 @@ def sac(
     def test_agent():
         for j in range(num_test_episodes):
             (o, _), d, ep_ret, ep_len = test_env.reset(), False, 0, 0
-            while not (d or (ep_len == 100)):
+            while not (d or (ep_len == max_ep_len)):
                 # Take deterministic actions at test time
                 o, r, terminated, truncated, _ = test_env.step(get_action(o, True))
                 d = terminated or truncated
@@ -345,7 +345,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--env", type=str, default="MountainCarContinuous-v0")
+    parser.add_argument("--env", type=str, default="HalfCheetah-v4")
     parser.add_argument("--hid", type=int, default=256)
     parser.add_argument("--l", type=int, default=2)
     parser.add_argument("--gamma", type=float, default=0.99)

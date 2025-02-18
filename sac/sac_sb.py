@@ -1,8 +1,10 @@
 import gymnasium as gym
 from stable_baselines3 import SAC
 
+env_id = "HalfCheetah-v4"
+
 # Create environment
-env = gym.make("MountainCarContinuous-v0")
+env = gym.make(env_id)
 
 # Create the SAC model
 model = SAC("MlpPolicy", env, verbose=1)
@@ -17,7 +19,7 @@ model.save("sac_mountaincar")
 model = SAC.load("sac_mountaincar", env=env)
 
 # Run the trained model
-env = gym.make("MountainCarContinuous-v0", render_mode="human")
+env = gym.make(env_id, render_mode="human")
 obs, _ = env.reset()
 for _ in range(1000):
     action, _states = model.predict(obs, deterministic=True)
