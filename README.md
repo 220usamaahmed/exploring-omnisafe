@@ -16,7 +16,7 @@ pip install -e .
 - Upgrade decorator, otherwise rendering does not seem to work.
 `pip install --upgrade decorator==4.0.2`
 
-## Usage
+## Basic Usage
 
 #### `train_policy.py`
 This has the simplest example of training an agent for a given environment.The
@@ -128,3 +128,14 @@ module and adding the environemnt using `eg.add("algo", [PPO, PPOLag, P30, ...])
 - **[AAAI 2022]** [Conservative and Adaptive Penalty for Model-Based Safe Reinforcement Learning (CAP)](https://arxiv.org/abs/2112.07701)
 - **[ICML 2022 Workshop]** [Constrained Model-based Reinforcement Learning with Robust Cross-Entropy Method (RCE)](https://arxiv.org/abs/2010.07968)
 - **[NeurIPS 2018]** [Constrained Cross-Entropy Method for Safe Reinforcement Learning (CCE)](https://proceedings.neurips.cc/paper/2018/hash/34ffeb359a192eb8174b6854643cc046-Abstract.html)
+
+## Custom Agent (Notes)
+
+#### `/sac`
+This folder has an implementaion for the Soft Actor Critic algorithm meant to
+eventually registered with OpenSafe.
+
+#### OpenSafe working
+- What happens when we call `.train()` on an `Agent` object?
+- What does an `Evaluator` look for when we call `.load_saved()`?
+- What happens when we call `.evaluate` on a `Evaluator` object?
