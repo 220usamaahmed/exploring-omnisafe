@@ -20,8 +20,9 @@ def train():
         },
     }
 
-    agent = omnisafe.Agent("DDPG", env_id, custom_cfgs=custom_cfgs)
-    agent.learn()
+    # agent = omnisafe.Agent("DDPG", env_id, custom_cfgs=custom_cfgs)
+    agent = omnisafe.Agent("DQN", env_id, custom_cfgs=custom_cfgs)
+    # agent.learn()
 
 
 def evaluate(log_dir: str):
@@ -43,7 +44,7 @@ def evaluate(log_dir: str):
 
 
 if __name__ == "__main__":
-    # train()
-    evaluate(
-        "/Users/usama/HRL/exploring-omnisafe/runs/DDPG-{Pendulum-v1}/seed-000-2025-02-19-14-47-23"
-    )
+    train()
+    # evaluate(
+    #     "/Users/usama/HRL/exploring-omnisafe/runs/DDPG-{Pendulum-v1}/seed-000-2025-02-19-14-47-23"
+    # )
