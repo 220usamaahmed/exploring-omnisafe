@@ -1,7 +1,7 @@
 import os
 import omnisafe
 
-LOG_DIR = "/Users/usama/HRL/exploring-omnisafe/runs/TRPO-{SafetyPointGoal1-v0}/seed-000-2025-02-17-12-56-16"
+LOG_DIR = "/Users/usama/HRL/exploring-omnisafe/runs/DDPG-{SafetyPointGoal1-v0}/seed-000-2025-02-19-10-48-43"
 
 if __name__ == "__main__":
     evaluator = omnisafe.Evaluator(render_mode="rgb_array")
@@ -15,6 +15,6 @@ if __name__ == "__main__":
                 width=256,
                 height=256,
             )
-            evaluator.render(num_episodes=1)
+            # evaluator.render(num_episodes=1)
             evaluator.evaluate(num_episodes=1)
     scan_dir.close()

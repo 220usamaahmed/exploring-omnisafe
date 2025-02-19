@@ -1,5 +1,4 @@
 import omnisafe
-import pickle
 
 
 env_id = "SafetyPointGoal1-v0"
@@ -18,7 +17,7 @@ custom_cfgs = {
     },
 }
 
-agent = omnisafe.Agent("SAC", env_id, custom_cfgs=custom_cfgs)
+agent = omnisafe.Agent("DDPG", env_id, custom_cfgs=custom_cfgs)
 agent.learn()
 
 agent.render(num_episodes=1, render_mode="rgb_array", width=256, height=256)
