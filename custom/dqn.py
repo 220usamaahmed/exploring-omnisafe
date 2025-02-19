@@ -10,7 +10,7 @@ from omnisafe.adapter import OffPolicyAdapter
 from omnisafe.algorithms import registry
 from omnisafe.algorithms.base_algo import BaseAlgo
 from omnisafe.common.buffer import VectorOffPolicyBuffer
-from omnisafe.commen.logger import Logger
+from omnisafe.common.logger import Logger
 
 
 @registry.register

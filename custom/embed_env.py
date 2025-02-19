@@ -11,7 +11,6 @@ from omnisafe.typing import DEVICE_CPU
 
 
 @env_register
-@env_unregister
 class ExampleMuJoCoEnv(CMDP):
     _support_envs: ClassVar[list[str]] = ["Pendulum-v1"]  # Supported task names
 
@@ -25,6 +24,8 @@ class ExampleMuJoCoEnv(CMDP):
         device: torch.device = DEVICE_CPU,
         **kwargs: Any,
     ) -> None:
+        kwargs = {"render_mode": kwargs.get("render_mode", "rgb_array")}
+
         super().__init__(env_id)
         self._num_envs = num_envs
         # Instantiate the environment object
@@ -107,15 +108,14 @@ class ExampleMuJoCoEnv(CMDP):
 
 if __name__ == "__main__":
     custom_cfgs = {
-        'train_cfgs': {
-            'total_steps': 200,
+        "train_cfgs": {
+            "total_steps": 200,
         },
-        'algo_cfgs': {
-            'steps_per_epoch': 200,
-            'update_iters': 1,
+        "algo_cfgs": {
+            "steps_per_epoch": 200,
+            "update_iters": 1,
         },
     }
 
-    agent = omnisafe.Agent('PPOLag', 'Pendulum-v1', custom_cfgs=custom_cfgs)
+    agent = omnisafe.Agent("PPOLag", "Pendulum-v1", custom_cfgs=custom_cfgs)
     agent.learn()
-
